@@ -1,0 +1,71 @@
+<template>
+  <div class="start-screen">
+    <h1 class="game-title">
+      Guess the Cards Game
+    </h1>
+    <button class="start-button" @click="startGame('easy')">
+      Play - easy mode
+    </button>
+    <button class="start-button" @click="startGame('normal')">
+      Play - normal mode
+    </button>
+    <button class="start-button" @click="startGame('hard')">
+      Play - hard mode
+    </button>
+  </div>
+</template>
+
+<script setup>
+import { useGameStore } from '../stores/game.js';
+
+const gameStore = useGameStore();
+
+function startGame(mode) {
+  gameStore.startGameSession(mode);
+}
+</script>
+
+<style scoped lang="scss">
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
+.game-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.start-button {
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  min-width: 280px;
+  margin-bottom: 12px;
+  color: #fff;
+  background-color: #ff4081;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: #e73370;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    background-color: #d0265c;
+    transform: translateY(0);
+    box-shadow: none;
+  }
+}
+</style>
