@@ -14,7 +14,7 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 
 import { Deck } from '../helpers/deck.js';
-import { points, results } from '../helpers/constants.js';
+import { gameModes, points, results } from '../helpers/constants.js';
 import { useGameStore } from '../stores/game';
 import GameBoardCards from './GameBoardCards.vue';
 import GamePoints from './GamePoints.vue';
@@ -46,12 +46,12 @@ function randomizeOptions(arr) {
 
 function evaluateOption(option) {
   if (option === localState.value.correctOption) {
-    gameStore.setGamePoints(points.win, 10);
+    gameStore.setGamePoints(points.win, gameModes[gameStore.currentSession.mode].gain);
     gameStore.setGameAnswers();
     gameStore.setGameResult(results.correct);
   }
   else {
-    gameStore.setGamePoints(points.loss, 10);
+    gameStore.setGamePoints(points.loss, gameModes[gameStore.currentSession.mode].loss);
     gameStore.setGameResult(results.incorrect);
   }
 }
