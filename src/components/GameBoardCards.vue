@@ -21,9 +21,6 @@ defineProps({
 .card-row_cards {
   display:  flex;
 }
-.card-symbol {
-  width: 50px;
-}
 
 .card-symbol {
   display: flex;
@@ -37,6 +34,10 @@ defineProps({
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
+  @media (max-width: 600px) {
+    width: 65px;
+    height: 85px;
+  }
 }
 
 .card-rank {
@@ -45,6 +46,9 @@ defineProps({
   position: absolute;
   top: 10px;
   left: 10px;
+  @media (max-width: 600px) {
+    top: 5px;
+  }
   &-s {
     color: #000;
   }
