@@ -28,7 +28,6 @@ function getSessionsFromStorage() {
 }
 
 function startGame() {
-  console.log(gameStore.currentSession.mode, 'gameStore.currentSession.mode');
   gameStore.startGameSession(gameStore.currentSession.mode);
   gameStore.setGameResult(null);
 }

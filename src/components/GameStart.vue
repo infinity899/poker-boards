@@ -3,13 +3,13 @@
     <h1 class="game-title">
       Guess the Cards Game
     </h1>
-    <button class="start-button" @click="startGame('easy')">
+    <button class="start-button" @click="startGame(gameModes.easy.key)">
       Play - easy mode
     </button>
-    <button class="start-button" @click="startGame('normal')">
+    <button class="start-button" @click="startGame(gameModes.normal.key)">
       Play - normal mode
     </button>
-    <button class="start-button" @click="startGame('hard')">
+    <button class="start-button" @click="startGame(gameModes.hard.key)">
       Play - hard mode
     </button>
   </div>
@@ -17,6 +17,7 @@
 
 <script setup>
 import { useGameStore } from '../stores/game.js';
+import { gameModes } from '../helpers/constants.js';
 
 const gameStore = useGameStore();
 

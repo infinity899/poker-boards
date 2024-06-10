@@ -15,11 +15,14 @@ export const newGame = {
 export const gameModes = {
   easy: {
     points: 100,
+    key: 'easy',
   },
   normal: {
     points: 20,
+    key: 'normal',
   },
   hard: {
     points: 5,
+    key: 'hard',
   },
 };
