@@ -4,10 +4,14 @@
       Your answer was: <span class="result">{{ gameStore.result }}</span>
     </div>
     <div class="points-message">
-      You
-      <span v-if="gameStore.result === results.correct">win</span>
-      <span v-if="gameStore.result === results.incorrect">lose</span>
-      <span class="points"> 10 points</span>
+      <div v-if="gameStore.result === results.correct">
+        You win
+        <span class="points">{{ gameModes[gameStore.currentSession.mode].gain }}</span>
+      </div>
+      <div v-if="gameStore.result === results.incorrect">
+        You lose
+        <span class="points">{{ gameModes[gameStore.currentSession.mode].loss }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -15,7 +19,7 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useGameStore } from '../stores/game';
-import { results } from '../helpers/constants.js';
+import { gameModes, results } from '../helpers/constants.js';
 
 const gameStore = useGameStore();
 
