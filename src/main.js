@@ -1,8 +1,10 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
-import Hand from 'pokersolver'
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
+import './style.css';
+import Hand from 'pokersolver';
+import App from './App.vue';
 
-const app = createApp(App)
-app.use(Hand).mount('#app')
+const pinia = createPinia();
+const app = createApp(App);
 
+app.use(pinia).use(Hand).mount('#app');
