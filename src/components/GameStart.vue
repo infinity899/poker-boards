@@ -1,8 +1,11 @@
 <template>
   <div class="start-screen">
     <h1 class="game-title">
-      Guess the Cards Game
+      What is the best hand game
     </h1>
+    <p>
+      Test your texas holdem reactions and pick the best hand from the board while you still have life points
+    </p>
     <button class="start-button" @click="startGame(gameModes.easy.key)">
       Play - easy mode
     </button>
@@ -40,7 +43,6 @@ function startGame(mode) {
 .game-title {
   font-size: 48px;
   font-weight: bold;
-  margin-bottom: 40px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
